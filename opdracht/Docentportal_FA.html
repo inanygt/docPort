@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docentportal FA</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#syntrapxl-teacher-portal">SyntraPXL Teacher Portal</a>
+<ul>
+<li><a href="#public">Public:</a></li>
+<li><a href="#admin">Admin:</a></li>
+<li><a href="#sprint-backlog-items">Sprint backlog items:</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="syntrapxl-teacher-portal">SyntraPXL Teacher Portal</h1>
+<p><img src="https://www.syntrapxl.be/themes/custom/sassy/assets/images/syntra/logo.svg" alt="enter image description here"></p>
+<p><strong>Project Description and Requirements</strong></p>
+<h2 id="public">Public:</h2>
+<p>The purpose of this application is to create a portal that displays teachers on an OpenStreetMap, along with an extensive search function. The personal data of the teachers will be limited to common fields that fall within the scope of GDPR (General Data Protection Regulation). These fields include fullName, location, description, and a contact button, which allows users to send an email to the teacher. Teachers will have the ability to register themselves through a publicly accessible form.</p>
+<h2 id="admin">Admin:</h2>
+<p>The admin section of the portal requires a dashboard with authentication. CRUD (Create, Read, Update, Delete) operations are needed to manage the teachers, locations, and pages. The teachers’ profiles will remain locked until an admin approves their application. To streamline the CRUD operations, authorization, and authentication processes, it is recommended to use Voyager.</p>
+<h2 id="sprint-backlog-items">Sprint backlog items:</h2>
+<p><strong>User Registration:</strong></p>
+<ul>
+<li>Create a publicly accessible registration form for teachers.</li>
+<li>Implement validation and error handling for registration inputs.</li>
+<li>Store registered teacher data securely in the database.</li>
+</ul>
+<p><strong>Teacher Profile: (OPTIONAL)</strong></p>
+<ul>
+<li>Design and implement a teacher profile page.</li>
+<li>Enable teachers to edit and update their profile information.</li>
+<li>Implement data privacy measures to ensure GDPR compliance.</li>
+</ul>
+<p><strong>OpenStreetMap Integration:</strong></p>
+<ul>
+<li>Integrate OpenStreetMap API to display teachers’ locations on a map.</li>
+<li>Develop a search function to filter and locate teachers based on criteria.</li>
+<li>Implement markers or pins to indicate the locations of teachers on the map.</li>
+</ul>
+<p><strong>Contact Functionality:</strong></p>
+<ul>
+<li>Add a contact button on each teacher’s profile for users to send emails.</li>
+<li>Implement an email service to handle and deliver contact messages.</li>
+<li>Ensure proper security measures to protect user data and prevent spam.</li>
+</ul>
+<p><strong>Admin Dashboard:</strong></p>
+<ul>
+<li>Develop an authentication system for admin access to the dashboard.</li>
+<li>Create CRUD functionality for managing teachers, locations, and pages.</li>
+<li>Implement admin approval process for unlocking teacher profiles.</li>
+</ul>
+<p><strong>Voyager Integration:</strong></p>
+<ul>
+<li>Integrate Voyager into the project for faster CRUD operations.</li>
+<li>Configure Voyager to handle authorization and authentication.</li>
+<li>Customize the admin interface for seamless management of data.</li>
+</ul>
+<p><strong>Testing and Quality Assurance:</strong></p>
+<ul>
+<li>Create test cases and perform comprehensive testing of all functionalities.</li>
+<li>Implement error logging and monitoring for effective issue resolution.</li>
+<li>Conduct usability testing to ensure a user-friendly experience.</li>
+</ul>
+<p><strong>GDPR Compliance:</strong></p>
+<ul>
+<li>Review and update data handling processes to comply with GDPR regulations.</li>
+<li>Implement privacy settings for teachers to control their data visibility.</li>
+<li>Provide options for data deletion upon user request or expiration.</li>
+</ul>
+<p><strong>Performance Optimization: (TELESCOPE)</strong></p>
+<ul>
+<li>Conduct performance analysis and optimize database queries and API calls.</li>
+<li>Implement caching mechanisms to improve response times.</li>
+<li>Optimize the application’s codebase and reduce unnecessary overhead.</li>
+</ul>
+<p><strong>Documentation and Deployment:</strong></p>
+<ul>
+<li>Create detailed documentation for installation, configuration, and usage.</li>
+<li>Prepare deployment scripts and guidelines for smooth deployment.</li>
+<li>Set up a continuous integration and deployment pipeline for future updates</li>
+</ul>
+
+    </div>
+  </div>
+</body>
+
+</html>
