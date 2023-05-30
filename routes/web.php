@@ -3,6 +3,7 @@
 use App\Http\Controllers\MapsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeachersController;
+use App\Http\Controllers\FormsController;
 
 
 /*
@@ -18,7 +19,7 @@ use App\Http\Controllers\TeachersController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -32,4 +33,20 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/teachers', [TeachersController::class, 'index'])->name('teachers.index');
 
-Route::get('/map', [MapsController::class, 'index']);
+// Route::get('/map', [MapsController::class, 'index']);
+
+Route::get('/', function() {
+     $initialMarkers = [
+            [
+                'position' => [
+                    'lat' => 28.625485,
+                    'lng' => 79.821091
+                ],
+                'draggable' => true
+            ],
+        ];
+        return view('leaflet/map', compact('initialMarkers'));
+});
+
+Route::get('/form', [FormsController::class, 'index'])->name('form');
+
