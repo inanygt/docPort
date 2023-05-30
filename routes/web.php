@@ -4,6 +4,9 @@ use App\Http\Controllers\MapsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeachersController;
 use App\Http\Controllers\FormsController;
+use App\Models\Teacher;
+use Illuminate\Http\Request;
+
 
 
 /*
@@ -17,10 +20,9 @@ use App\Http\Controllers\FormsController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
-
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -50,3 +52,14 @@ Route::get('/', function() {
 
 Route::get('/form', [FormsController::class, 'index'])->name('form');
 
+Route::post('/form',function(Request $request){
+    // dd($request);
+    $teacher = new Teacher();
+    $teacher->name = $request->name;
+    $teacher->description = $request->description;
+    $teacher->location = $request->location;
+    $teacher->save();
+
+    // return view ('welcome', ['name' => $request->name]);
+    return redirect('/');
+});

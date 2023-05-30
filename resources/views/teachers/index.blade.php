@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('welcome')
 
-@section('content')
+@section('datatable')
+<h1>Datatable</h1>
     <div class="container">
         <div class="card">
             <div class="card-header">Manage Users</div>
@@ -9,6 +10,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('content')
+dssffsd
 @endsection
 
 @push('scripts')
