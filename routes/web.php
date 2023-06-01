@@ -54,11 +54,21 @@ Route::get('/form', [FormsController::class, 'index'])->name('form');
 
 Route::post('/form',function(Request $request){
     // dd($request);
-    $teacher = new Teacher();
-    $teacher->name = $request->name;
-    $teacher->description = $request->description;
-    $teacher->location = $request->location;
-    $teacher->save();
+
+    $validation = $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'location' => 'required',
+        'description' => 'required'
+    ]);
+
+    $teacher = Teacher::create($validation);
+
+    // $teacher = new Teacher();
+    // $teacher->name = $request->name;
+    // $teacher->description = $request->description;
+    // $teacher->location = $request->location;
+    // $teacher->save();
 
     // return view ('welcome', ['name' => $request->name]);
     return redirect('/');
