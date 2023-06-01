@@ -3,23 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teacher;
+use Illuminate\Database\QueryException;
+
 
 class FormsController extends Controller
+
 {
 
     //
-    public function index() {
+    public function index(Request $request) {
 
-        $initialMarkers = [
-            [
-                'position' => [
-                    'lat' => 28.625485,
-                    'lng' => 79.821091
-                ],
-                'draggable' => true
-            ],
-        ];
+         $validation = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'location' => 'required',
+            'description' => 'required'
+        ]);
 
-        return view('/form', compact('initialMarkers'));
+    try {
+        $teacher = Teacher::create($validation);
+    } catch (QueryException $e) {
+        $errorCode = $e->errorInfo[1];
+        if ($errorCode == 1062) {
+            // Duplicate entry error
+            $errorMessage = 'This account already exists already exists.';
+            return view('/form', ['errorMessage' => $errorMessage]);
+        }
+        // Other database error
+        $errorMessage = 'An error occurred while saving the teacher.';
+        return view('/form', ['errorMessage' => $errorMessage]);
     }
+
+    return view('/form', ['name' => $request->name]);
+}
 }

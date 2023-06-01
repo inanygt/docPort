@@ -4,6 +4,7 @@ use App\Http\Controllers\MapsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeachersController;
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Models\Teacher;
@@ -38,7 +39,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 // Route::get('/map', [MapsController::class, 'index']);
@@ -58,23 +59,18 @@ Route::get('/', function() {
             ],
         ];
         return view('welcome', compact('initialMarkers', 'teachers'));
-});
+})->name('welcome');
 
-Route::get('/form', [FormsController::class, 'index'])->name('form');
+// Route::get('/form', [FormsController::class, 'index'])->name('form');
 
-Route::post('/form',function(Request $request){
+Route::get('/form', function() {
+    return view('form');
+})->name('form');
 
-        $validation = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'location' => 'required',
-            'description' => 'required'
-        ]);
-
-        $teacher = Teacher::create($validation);
+// Route::post('/form',function(Request $request){
 
 
-        // This takes the name of the user and displays it in the view after submission. (welcome.blade)
-        return view ('welcome', ['name' => $request->name]);
 
-});
+// });
+
+Route::post('/form', [FormsController::class, 'index']);

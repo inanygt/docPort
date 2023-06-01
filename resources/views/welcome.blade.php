@@ -1,5 +1,4 @@
 @extends('masters')
 @section('content')
-    <div id='map'></div>
-
+    @include('map')
 @endsection
