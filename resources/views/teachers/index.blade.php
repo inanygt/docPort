@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-dssffsd
+
 @endsection
 
 @push('scripts')
